@@ -1,0 +1,1084 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>御風堂國際室內設計 · Yuphonetone International Interior Design</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400;1,600&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Noto+Serif+TC:wght@200;300;400&family=DM+Mono:wght@300;400&display=swap" rel="stylesheet">
+<style>
+:root {
+  --gold: #C9A84C;
+  --gold-light: #E8C97A;
+  --gold-dim: #7A6030;
+  --gold-pale: rgba(201,168,76,0.12);
+  --dark: #090909;
+  --dark2: #101010;
+  --surface: #141414;
+  --surface2: #1A1A1A;
+  --border: rgba(255,255,255,0.07);
+  --border-gold: rgba(201,168,76,0.25);
+  --text: #E2DDD6;
+  --text-dim: #7A7570;
+  --text-muted: #3E3B38;
+}
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box;}
+html{scroll-behavior:smooth;font-size:16px;}
+body{
+  background:var(--dark);
+  color:var(--text);
+  font-family:'Cormorant Garamond',serif;
+  font-weight:300;
+  overflow-x:hidden;
+  cursor:none;
+}
+
+/* ── CUSTOM CURSOR ── */
+#cursor{
+  position:fixed;width:8px;height:8px;
+  background:var(--gold);border-radius:50%;
+  pointer-events:none;z-index:9999;
+  transform:translate(-50%,-50%);
+  transition:transform 0.1s,width 0.3s,height 0.3s,opacity 0.3s;
+}
+#cursor-ring{
+  position:fixed;width:36px;height:36px;
+  border:1px solid rgba(201,168,76,0.5);border-radius:50%;
+  pointer-events:none;z-index:9998;
+  transform:translate(-50%,-50%);
+  transition:transform 0.18s ease,width 0.3s,height 0.3s,opacity 0.3s;
+}
+body:hover #cursor{opacity:1;}
+a:hover~#cursor,button:hover~#cursor{width:20px;height:20px;}
+
+/* ── NOISE GRAIN OVERLAY ── */
+body::before{
+  content:'';position:fixed;inset:0;z-index:1000;pointer-events:none;
+  background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
+  opacity:0.028;
+}
+
+/* ── NAV ── */
+nav{
+  position:fixed;top:0;left:0;right:0;z-index:500;
+  padding:0 60px;
+  display:flex;align-items:center;justify-content:space-between;
+  height:72px;
+  transition:background 0.5s,backdrop-filter 0.5s,border-color 0.5s;
+  border-bottom:1px solid transparent;
+}
+nav.scrolled{
+  background:rgba(9,9,9,0.92);
+  backdrop-filter:blur(18px);
+  border-bottom-color:var(--border-gold);
+}
+.nav-logo{
+  display:flex;flex-direction:column;gap:2px;
+  text-decoration:none;
+}
+.nav-logo-cn{
+  font-family:'Playfair Display',serif;
+  font-size:18px;letter-spacing:0.12em;
+  color:var(--gold);line-height:1;
+}
+.nav-logo-en{
+  font-family:'DM Mono',monospace;
+  font-size:9px;letter-spacing:0.22em;
+  color:var(--text-dim);text-transform:uppercase;
+}
+.nav-links{
+  display:flex;gap:44px;list-style:none;
+}
+.nav-links a{
+  font-family:'Noto Serif TC',serif;
+  font-size:11px;letter-spacing:0.18em;
+  color:var(--text-dim);text-decoration:none;text-transform:uppercase;
+  transition:color 0.2s;position:relative;
+}
+.nav-links a::after{
+  content:'';position:absolute;bottom:-4px;left:0;width:0;height:1px;
+  background:var(--gold);transition:width 0.3s;
+}
+.nav-links a:hover{color:var(--gold-light);}
+.nav-links a:hover::after{width:100%;}
+.nav-cta{
+  font-family:'Noto Serif TC',serif;
+  font-size:11px;letter-spacing:0.14em;
+  padding:9px 22px;border:1px solid var(--border-gold);
+  background:transparent;color:var(--gold-light);
+  text-decoration:none;text-transform:uppercase;
+  transition:all 0.25s;cursor:none;
+}
+.nav-cta:hover{background:var(--gold);color:var(--dark);}
+
+/* ── HERO ── */
+#hero{
+  position:relative;width:100%;height:100vh;
+  min-height:680px;overflow:hidden;
+  background:var(--dark);
+}
+.hero-slides{position:absolute;inset:0;}
+.hero-slide{
+  position:absolute;inset:0;
+  background-size:cover;background-position:center;
+  opacity:0;transition:opacity 2s ease;
+  transform-origin:center;
+}
+.hero-slide.active{opacity:1;animation:heroKB 16s ease-in-out forwards;}
+@keyframes heroKB{
+  0%  {transform:scale(1.06) translate(0,0);}
+  100%{transform:scale(1.12) translate(-1.5%,-0.8%);}
+}
+.hero-vignette{
+  position:absolute;inset:0;z-index:2;
+  background:
+    radial-gradient(ellipse at center, transparent 30%, rgba(9,9,9,0.55) 100%),
+    linear-gradient(to bottom, rgba(9,9,9,0.4) 0%, rgba(9,9,9,0.1) 30%, rgba(9,9,9,0.6) 75%, rgba(9,9,9,0.96) 100%);
+}
+.hero-left-fade{
+  position:absolute;inset:0;z-index:2;
+  background:linear-gradient(to right, rgba(9,9,9,0.75) 0%, transparent 55%);
+}
+.hero-body{
+  position:absolute;inset:0;z-index:3;
+  display:flex;flex-direction:column;
+  justify-content:flex-end;padding:0 100px 110px;
+}
+.hero-tag{
+  font-family:'DM Mono',monospace;
+  font-size:10px;letter-spacing:0.42em;
+  color:var(--gold-dim);text-transform:uppercase;
+  margin-bottom:20px;
+  opacity:0;animation:revealUp 1s ease 0.8s forwards;
+}
+.hero-h1{
+  font-family:'Playfair Display',serif;
+  font-size:clamp(42px,7vw,88px);
+  font-weight:400;line-height:1.05;
+  letter-spacing:0.02em;
+  color:var(--text);
+  opacity:0;animation:revealUp 1.1s ease 1s forwards;
+}
+.hero-h1 em{
+  font-style:italic;color:var(--gold);display:block;
+}
+.hero-sub{
+  font-family:'Cormorant Garamond',serif;
+  font-size:clamp(14px,1.6vw,18px);
+  font-weight:300;letter-spacing:0.1em;
+  color:rgba(226,221,214,0.55);
+  max-width:440px;margin-top:18px;line-height:1.8;
+  opacity:0;animation:revealUp 1.1s ease 1.2s forwards;
+}
+.hero-actions{
+  display:flex;align-items:center;gap:28px;
+  margin-top:40px;
+  opacity:0;animation:revealUp 1.1s ease 1.4s forwards;
+}
+.hero-btn{
+  font-family:'Noto Serif TC',serif;
+  font-size:11px;letter-spacing:0.16em;text-transform:uppercase;
+  padding:14px 34px;border:1px solid var(--gold);
+  background:var(--gold);color:var(--dark);
+  text-decoration:none;font-weight:400;
+  transition:all 0.25s;cursor:none;
+}
+.hero-btn:hover{background:transparent;color:var(--gold-light);}
+.hero-btn.outline{background:transparent;color:var(--gold-light);}
+.hero-btn.outline:hover{background:rgba(201,168,76,0.1);}
+.hero-scroll{
+  position:absolute;right:60px;bottom:48px;z-index:3;
+  display:flex;flex-direction:column;align-items:center;gap:10px;
+  opacity:0;animation:fadeIn 1s ease 2s forwards;
+}
+.hero-scroll span{
+  font-family:'DM Mono',monospace;font-size:9px;
+  letter-spacing:0.3em;color:var(--text-dim);
+  text-transform:uppercase;writing-mode:vertical-rl;
+}
+.scroll-line{
+  width:1px;height:52px;
+  background:linear-gradient(to bottom, var(--gold-dim), transparent);
+  animation:scrollPulse 2s ease-in-out infinite;
+}
+@keyframes scrollPulse{
+  0%,100%{opacity:0.4;transform:scaleY(1);}
+  50%{opacity:1;transform:scaleY(0.5)translateY(26px);}
+}
+.hero-progress{
+  position:absolute;bottom:0;left:0;right:0;z-index:3;
+  height:2px;background:rgba(255,255,255,0.06);
+}
+.hero-progress-bar{
+  height:100%;background:var(--gold);
+  width:0%;transition:width 0.1s linear;
+}
+/* slide indicators */
+.hero-indicators{
+  position:absolute;right:60px;top:50%;transform:translateY(-50%);
+  z-index:3;display:flex;flex-direction:column;gap:10px;
+}
+.hero-ind{
+  width:2px;height:20px;background:rgba(255,255,255,0.15);
+  cursor:none;transition:all 0.3s;border:none;padding:0;
+}
+.hero-ind.active{background:var(--gold);height:36px;}
+
+/* ── SECTION COMMONS ── */
+section{position:relative;overflow:hidden;}
+.section-label{
+  font-family:'DM Mono',monospace;
+  font-size:9px;letter-spacing:0.42em;
+  color:var(--gold-dim);text-transform:uppercase;
+  margin-bottom:18px;display:block;
+}
+.section-h2{
+  font-family:'Playfair Display',serif;
+  font-size:clamp(30px,4.5vw,54px);
+  font-weight:400;line-height:1.15;
+  letter-spacing:0.02em;
+}
+.section-h2 em{font-style:italic;color:var(--gold);}
+.reveal{opacity:0;transform:translateY(32px);transition:opacity 0.8s ease,transform 0.8s ease;}
+.reveal.visible{opacity:1;transform:translateY(0);}
+.reveal-left{opacity:0;transform:translateX(-40px);transition:opacity 0.9s ease,transform 0.9s ease;}
+.reveal-left.visible{opacity:1;transform:translateX(0);}
+.reveal-right{opacity:0;transform:translateX(40px);transition:opacity 0.9s ease,transform 0.9s ease;}
+.reveal-right.visible{opacity:1;transform:translateX(0);}
+
+/* ── MARQUEE STRIP ── */
+.marquee-wrap{
+  background:var(--gold);
+  padding:14px 0;overflow:hidden;
+  position:relative;z-index:2;
+}
+.marquee-track{
+  display:flex;gap:0;
+  animation:marquee 30s linear infinite;
+  white-space:nowrap;
+}
+.marquee-item{
+  font-family:'Playfair Display',serif;
+  font-size:13px;letter-spacing:0.2em;
+  color:var(--dark);text-transform:uppercase;
+  padding:0 40px;
+  display:flex;align-items:center;gap:32px;
+  flex-shrink:0;
+}
+.marquee-dot{width:4px;height:4px;background:rgba(9,9,9,0.35);border-radius:50%;}
+@keyframes marquee{from{transform:translateX(0);}to{transform:translateX(-50%);}}
+
+/* ── ABOUT ── */
+#about{
+  padding:140px 0;
+  background:var(--dark2);
+}
+.about-grid{
+  max-width:1260px;margin:0 auto;padding:0 80px;
+  display:grid;grid-template-columns:1fr 1fr;gap:80px;
+  align-items:center;
+}
+.about-img-col{position:relative;}
+.about-img-main{
+  width:100%;aspect-ratio:3/4;object-fit:cover;
+  filter:contrast(1.05) brightness(0.92);
+  display:block;
+}
+.about-img-accent{
+  position:absolute;bottom:-40px;right:-40px;
+  width:55%;aspect-ratio:4/3;object-fit:cover;
+  border:4px solid var(--dark2);
+  filter:contrast(1.05) brightness(0.88);
+}
+.about-img-frame{
+  position:absolute;top:-20px;left:-20px;
+  width:60%;height:60%;
+  border:1px solid var(--border-gold);
+  pointer-events:none;
+}
+.about-stat-row{
+  display:flex;gap:0;margin-top:48px;
+  border-top:1px solid var(--border-gold);
+  padding-top:32px;
+}
+.about-stat{
+  flex:1;padding-right:28px;
+  border-right:1px solid var(--border);
+}
+.about-stat:last-child{padding-right:0;border-right:none;padding-left:28px;}
+.about-stat-num{
+  font-family:'Playfair Display',serif;
+  font-size:42px;line-height:1;color:var(--gold);
+  letter-spacing:-0.01em;
+}
+.about-stat-num sup{font-size:18px;vertical-align:top;margin-top:8px;display:inline-block;}
+.about-stat-label{
+  font-family:'Noto Serif TC',serif;
+  font-size:11px;letter-spacing:0.14em;
+  color:var(--text-dim);margin-top:6px;
+}
+.about-text-col{}
+.about-p{
+  font-size:17px;line-height:2;
+  color:rgba(226,221,214,0.7);
+  margin-top:28px;
+}
+.about-signature{
+  margin-top:44px;padding-top:32px;
+  border-top:1px solid var(--border);
+  display:flex;align-items:center;gap:20px;
+}
+.about-sig-name{
+  font-family:'Playfair Display',serif;
+  font-size:22px;font-style:italic;color:var(--gold);
+}
+.about-sig-title{
+  font-family:'DM Mono',monospace;
+  font-size:9px;letter-spacing:0.24em;
+  color:var(--text-dim);text-transform:uppercase;margin-top:4px;
+}
+
+/* ── SERVICES ── */
+#services{
+  padding:140px 0;
+  background:var(--dark);
+}
+.services-wrap{max-width:1260px;margin:0 auto;padding:0 80px;}
+.services-head{
+  display:flex;justify-content:space-between;align-items:flex-end;
+  margin-bottom:72px;
+  padding-bottom:32px;border-bottom:1px solid var(--border-gold);
+}
+.services-grid{
+  display:grid;grid-template-columns:repeat(3,1fr);
+  gap:2px;
+}
+.service-card{
+  background:var(--surface);
+  padding:44px 36px;position:relative;
+  overflow:hidden;cursor:none;
+  transition:background 0.3s;
+  border:1px solid transparent;
+}
+.service-card::before{
+  content:'';position:absolute;inset:0;
+  background:linear-gradient(135deg,var(--gold-pale) 0%, transparent 60%);
+  opacity:0;transition:opacity 0.35s;
+}
+.service-card:hover{background:var(--surface2);}
+.service-card:hover::before{opacity:1;}
+.service-card-num{
+  font-family:'DM Mono',monospace;
+  font-size:11px;letter-spacing:0.22em;
+  color:var(--text-muted);margin-bottom:28px;
+}
+.service-icon{
+  width:42px;height:42px;margin-bottom:24px;
+  border:1px solid var(--border-gold);
+  display:flex;align-items:center;justify-content:center;
+}
+.service-icon svg{width:20px;height:20px;stroke:var(--gold);fill:none;stroke-width:1.5;}
+.service-h3{
+  font-family:'Playfair Display',serif;
+  font-size:21px;font-weight:400;
+  color:var(--text);margin-bottom:16px;
+  letter-spacing:0.03em;
+}
+.service-p{
+  font-size:14px;line-height:1.9;
+  color:var(--text-dim);
+}
+.service-arrow{
+  position:absolute;right:28px;bottom:28px;
+  width:32px;height:32px;border:1px solid var(--border);
+  display:flex;align-items:center;justify-content:center;
+  opacity:0;transform:translateX(-8px);
+  transition:opacity 0.3s,transform 0.3s,border-color 0.3s;
+}
+.service-arrow svg{width:14px;height:14px;stroke:var(--gold);fill:none;stroke-width:2;}
+.service-card:hover .service-arrow{opacity:1;transform:translateX(0);border-color:var(--border-gold);}
+
+/* ── PORTFOLIO ── */
+#portfolio{
+  padding:140px 0;
+  background:var(--dark2);
+}
+.portfolio-wrap{max-width:1260px;margin:0 auto;padding:0 80px;}
+.portfolio-head{margin-bottom:64px;}
+.portfolio-grid{
+  display:grid;
+  grid-template-columns:7fr 5fr;
+  grid-template-rows:auto auto;
+  gap:3px;
+}
+.port-item{
+  position:relative;overflow:hidden;cursor:none;
+}
+.port-item:nth-child(1){grid-row:1/3;}
+.port-item img{
+  width:100%;height:100%;object-fit:cover;
+  transition:transform 0.7s ease,filter 0.4s;
+  filter:brightness(0.85) contrast(1.05);
+  display:block;min-height:260px;
+}
+.port-item:nth-child(1) img{min-height:520px;}
+.port-item:hover img{transform:scale(1.06);filter:brightness(0.75) contrast(1.1);}
+.port-overlay{
+  position:absolute;inset:0;
+  background:linear-gradient(to top, rgba(9,9,9,0.85) 0%, transparent 60%);
+  opacity:0;transition:opacity 0.4s;
+}
+.port-item:hover .port-overlay{opacity:1;}
+.port-info{
+  position:absolute;bottom:0;left:0;right:0;
+  padding:28px 28px;
+  transform:translateY(12px);
+  transition:transform 0.4s;
+}
+.port-item:hover .port-info{transform:translateY(0);}
+.port-cat{
+  font-family:'DM Mono',monospace;font-size:9px;
+  letter-spacing:0.3em;color:var(--gold);text-transform:uppercase;
+  margin-bottom:6px;opacity:0;transition:opacity 0.35s 0.05s;
+}
+.port-item:hover .port-cat{opacity:1;}
+.port-title{
+  font-family:'Playfair Display',serif;
+  font-size:18px;color:var(--text);
+  opacity:0;transition:opacity 0.35s 0.1s;
+}
+.port-item:hover .port-title{opacity:1;}
+.port-more{
+  display:flex;justify-content:center;margin-top:56px;
+}
+.port-more a{
+  font-family:'Noto Serif TC',serif;
+  font-size:11px;letter-spacing:0.18em;text-transform:uppercase;
+  color:var(--gold-light);text-decoration:none;
+  padding:13px 36px;border:1px solid var(--border-gold);
+  transition:all 0.25s;
+}
+.port-more a:hover{background:var(--gold);color:var(--dark);}
+
+/* ── PROCESS ── */
+#process{
+  padding:140px 0;
+  background:var(--dark);
+}
+.process-wrap{max-width:1260px;margin:0 auto;padding:0 80px;}
+.process-head{text-align:center;margin-bottom:88px;}
+.process-head .section-label{justify-content:center;display:flex;}
+.process-steps{
+  display:grid;grid-template-columns:repeat(5,1fr);
+  position:relative;gap:0;
+}
+.process-steps::before{
+  content:'';position:absolute;
+  top:28px;left:10%;right:10%;height:1px;
+  background:linear-gradient(to right, transparent, var(--border-gold), var(--border-gold), transparent);
+}
+.process-step{
+  display:flex;flex-direction:column;align-items:center;
+  text-align:center;padding:0 20px;
+}
+.process-num{
+  width:56px;height:56px;
+  border:1px solid var(--border-gold);
+  background:var(--dark);
+  display:flex;align-items:center;justify-content:center;
+  font-family:'DM Mono',monospace;font-size:12px;
+  letter-spacing:0.1em;color:var(--gold);
+  margin-bottom:24px;position:relative;z-index:1;
+  transition:background 0.3s,border-color 0.3s;
+}
+.process-step:hover .process-num{
+  background:var(--gold);color:var(--dark);border-color:var(--gold);
+}
+.process-step-title{
+  font-family:'Playfair Display',serif;
+  font-size:16px;color:var(--text);margin-bottom:10px;
+}
+.process-step-desc{
+  font-size:13px;line-height:1.8;color:var(--text-dim);
+}
+
+/* ── TESTIMONIAL ── */
+#testimonial{
+  padding:160px 0;
+  background:var(--dark2);
+  text-align:center;
+}
+.testimonial-wrap{
+  max-width:820px;margin:0 auto;padding:0 60px;
+}
+.testimonial-quote-mark{
+  font-family:'Playfair Display',serif;
+  font-size:120px;line-height:0.6;
+  color:var(--gold-dim);margin-bottom:24px;display:block;
+  opacity:0.5;
+}
+.testimonial-text{
+  font-family:'Cormorant Garamond',serif;
+  font-size:clamp(20px,2.8vw,30px);
+  font-style:italic;font-weight:300;
+  line-height:1.7;color:var(--text);
+  margin-bottom:36px;
+}
+.testimonial-attr{
+  font-family:'DM Mono',monospace;
+  font-size:10px;letter-spacing:0.26em;
+  color:var(--gold-dim);text-transform:uppercase;
+}
+.testimonial-line{
+  width:40px;height:1px;
+  background:var(--gold-dim);
+  margin:0 auto 14px;
+}
+/* nav dots */
+.t-dots{display:flex;justify-content:center;gap:10px;margin-top:44px;}
+.t-dot{
+  width:6px;height:6px;border-radius:50%;
+  background:var(--text-muted);border:none;cursor:none;
+  transition:background 0.3s,transform 0.3s;
+}
+.t-dot.active{background:var(--gold);transform:scale(1.3);}
+
+/* ── CTA ── */
+#cta{
+  padding:0;height:520px;
+  position:relative;overflow:hidden;
+}
+.cta-bg{
+  position:absolute;inset:0;
+  background-image:url('https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?w=1600&auto=format&fit=crop&q=80');
+  background-size:cover;background-position:center;
+  filter:brightness(0.3) contrast(1.1);
+  animation:heroKB 20s ease-in-out infinite alternate;
+}
+.cta-overlay{
+  position:absolute;inset:0;
+  background:linear-gradient(135deg, rgba(9,9,9,0.7) 0%, rgba(9,9,9,0.4) 100%);
+}
+.cta-body{
+  position:absolute;inset:0;z-index:2;
+  display:flex;flex-direction:column;
+  align-items:center;justify-content:center;
+  text-align:center;padding:0 60px;
+}
+.cta-h2{
+  font-family:'Playfair Display',serif;
+  font-size:clamp(30px,5vw,58px);
+  font-weight:400;line-height:1.15;
+  color:var(--text);letter-spacing:0.03em;
+  margin-bottom:18px;
+}
+.cta-h2 em{font-style:italic;color:var(--gold);}
+.cta-sub{
+  font-size:15px;letter-spacing:0.1em;
+  color:rgba(226,221,214,0.55);
+  margin-bottom:44px;
+}
+.cta-actions{display:flex;gap:20px;}
+.cta-btn{
+  font-family:'Noto Serif TC',serif;
+  font-size:11px;letter-spacing:0.16em;text-transform:uppercase;
+  padding:15px 40px;cursor:none;text-decoration:none;
+  transition:all 0.25s;
+}
+.cta-btn.fill{background:var(--gold);color:var(--dark);border:1px solid var(--gold);}
+.cta-btn.fill:hover{background:var(--gold-light);}
+.cta-btn.ghost{background:transparent;color:var(--gold-light);border:1px solid var(--border-gold);}
+.cta-btn.ghost:hover{background:rgba(201,168,76,0.1);}
+
+/* ── FOOTER ── */
+footer{
+  background:var(--dark);
+  border-top:1px solid var(--border-gold);
+  padding:72px 0 36px;
+}
+.footer-wrap{
+  max-width:1260px;margin:0 auto;padding:0 80px;
+}
+.footer-top{
+  display:grid;grid-template-columns:2fr 1fr 1fr 1fr;
+  gap:60px;padding-bottom:56px;
+  border-bottom:1px solid var(--border);
+}
+.footer-brand .brand-cn{
+  font-family:'Playfair Display',serif;
+  font-size:22px;color:var(--gold);letter-spacing:0.1em;
+  margin-bottom:6px;
+}
+.footer-brand .brand-en{
+  font-family:'DM Mono',monospace;font-size:9px;
+  letter-spacing:0.2em;color:var(--text-dim);text-transform:uppercase;
+  margin-bottom:22px;
+}
+.footer-brand p{
+  font-size:13px;line-height:1.9;
+  color:var(--text-dim);max-width:260px;
+}
+.footer-col h4{
+  font-family:'Noto Serif TC',serif;
+  font-size:11px;letter-spacing:0.2em;
+  color:var(--text-dim);text-transform:uppercase;
+  margin-bottom:20px;padding-bottom:12px;
+  border-bottom:1px solid var(--border);
+}
+.footer-col ul{list-style:none;display:flex;flex-direction:column;gap:11px;}
+.footer-col li a{
+  font-size:13px;color:var(--text-dim);
+  text-decoration:none;letter-spacing:0.05em;
+  transition:color 0.2s;
+}
+.footer-col li a:hover{color:var(--gold-light);}
+.footer-bottom{
+  display:flex;justify-content:space-between;align-items:center;
+  padding-top:28px;
+}
+.footer-copy{
+  font-family:'DM Mono',monospace;font-size:10px;
+  letter-spacing:0.12em;color:var(--text-muted);
+}
+.footer-socials{display:flex;gap:16px;}
+.footer-social{
+  width:32px;height:32px;border:1px solid var(--border);
+  display:flex;align-items:center;justify-content:center;
+  text-decoration:none;transition:border-color 0.25s,background 0.25s;
+}
+.footer-social svg{width:14px;height:14px;stroke:var(--text-dim);fill:none;stroke-width:2;transition:stroke 0.25s;}
+.footer-social:hover{border-color:var(--gold);background:var(--gold-pale);}
+.footer-social:hover svg{stroke:var(--gold);}
+
+/* ── ANIMATIONS ── */
+@keyframes revealUp{from{opacity:0;transform:translateY(28px);}to{opacity:1;transform:translateY(0);}}
+@keyframes fadeIn{from{opacity:0;}to{opacity:1;}}
+</style>
+</head>
+<body>
+
+<!-- CURSOR -->
+<div id="cursor"></div>
+<div id="cursor-ring"></div>
+
+<!-- NAV -->
+<nav id="mainNav">
+  <a href="#" class="nav-logo">
+    <span class="nav-logo-cn">御風堂</span>
+    <span class="nav-logo-en">Yuphonetone Interior Design</span>
+  </a>
+  <ul class="nav-links">
+    <li><a href="#about">品牌理念</a></li>
+    <li><a href="#services">設計服務</a></li>
+    <li><a href="#portfolio">作品展示</a></li>
+    <li><a href="#process">設計流程</a></li>
+  </ul>
+  <a href="#cta" class="nav-cta">立即諮詢</a>
+</nav>
+
+<!-- HERO -->
+<section id="hero">
+  <div class="hero-slides" id="heroSlides"></div>
+  <div class="hero-vignette"></div>
+  <div class="hero-left-fade"></div>
+  <div class="hero-body">
+    <div class="hero-tag">Since 2010 · New Taipei City, Taiwan</div>
+    <h1 class="hero-h1">
+      設計·生活<br>
+      <em>頂奢空間美學</em>
+    </h1>
+    <p class="hero-sub">將居住的期待，轉化為精工打造的生活場景。每一個空間，都是一部無聲的敘事詩。</p>
+    <div class="hero-actions">
+      <a href="#portfolio" class="hero-btn">探索作品集</a>
+      <a href="#cta" class="hero-btn outline">預約設計諮詢</a>
+    </div>
+  </div>
+  <div class="hero-scroll">
+    <span>Scroll</span>
+    <div class="scroll-line"></div>
+  </div>
+  <div class="hero-indicators" id="heroIndicators"></div>
+  <div class="hero-progress"><div class="hero-progress-bar" id="heroBar"></div></div>
+</section>
+
+<!-- MARQUEE -->
+<div class="marquee-wrap" aria-hidden="true">
+  <div class="marquee-track" id="marqueeTrack"></div>
+</div>
+
+<!-- ABOUT -->
+<section id="about">
+  <div class="about-grid">
+    <div class="about-img-col reveal-left">
+      <div class="about-img-frame"></div>
+      <img class="about-img-main" src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=700&auto=format&fit=crop&q=80" alt="御風堂設計作品" loading="lazy" />
+      <img class="about-img-accent" src="https://images.unsplash.com/photo-1583847268964-b28dc8f51f92?w=400&auto=format&fit=crop&q=75" alt="細節特寫" loading="lazy" />
+    </div>
+    <div class="about-text-col reveal-right">
+      <span class="section-label">About · 品牌理念</span>
+      <h2 class="section-h2">空間，是<em>生命質感</em><br>的延伸</h2>
+      <p class="about-p">御風堂國際室內設計，立足新北市，深耕台灣高端住宅市場逾十四年。我們相信，每一個理想的居所，都應當如同精心撰寫的詩篇——充滿秩序、充滿情感，並且歷久彌新。</p>
+      <p class="about-p">從空間規劃、材質選配到工班管理，我們以整合型設計服務，確保每個細節均達到業主最高期待。</p>
+      <div class="about-stat-row">
+        <div class="about-stat">
+          <div class="about-stat-num">14<sup>＋</sup></div>
+          <div class="about-stat-label">年設計資歷</div>
+        </div>
+        <div class="about-stat">
+          <div class="about-stat-num">280<sup>＋</sup></div>
+          <div class="about-stat-label">完工案例</div>
+        </div>
+        <div class="about-stat">
+          <div class="about-stat-num">98<sup>%</sup></div>
+          <div class="about-stat-label">業主滿意度</div>
+        </div>
+      </div>
+      <div class="about-signature">
+        <div>
+          <div class="about-sig-name">Johnson Chien</div>
+          <div class="about-sig-title">Principal Designer · 御風堂創辦人</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SERVICES -->
+<section id="services">
+  <div class="services-wrap">
+    <div class="services-head reveal">
+      <div>
+        <span class="section-label">Services · 設計服務</span>
+        <h2 class="section-h2">專業服務<br><em>全程整合</em></h2>
+      </div>
+      <p style="max-width:300px;font-size:14px;line-height:1.9;color:var(--text-dim);">從概念到落成，御風堂提供完整的一站式設計服務，為您打造無後顧之憂的頂奢居住體驗。</p>
+    </div>
+    <div class="services-grid">
+      <div class="service-card reveal" style="transition-delay:0s">
+        <div class="service-card-num">01</div>
+        <div class="service-icon"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="1"/><path d="M3 9h18M9 21V9"/></svg></div>
+        <h3 class="service-h3">空間規劃設計</h3>
+        <p class="service-p">從丈量、格局調整到動線優化，提供客製化平面配置，完整回應業主的生活型態需求。</p>
+        <div class="service-arrow"><svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg></div>
+      </div>
+      <div class="service-card reveal" style="transition-delay:0.1s">
+        <div class="service-card-num">02</div>
+        <div class="service-icon"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 3v18M3 12h18"/></svg></div>
+        <h3 class="service-h3">3D 空間視覺化</h3>
+        <p class="service-p">運用 D5 Render、SketchUp 製作高精度 3D 渲染圖，讓業主在施工前即可身歷其境預覽成果。</p>
+        <div class="service-arrow"><svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg></div>
+      </div>
+      <div class="service-card reveal" style="transition-delay:0.2s">
+        <div class="service-card-num">03</div>
+        <div class="service-icon"><svg viewBox="0 0 24 24"><path d="M3 9l9-6 9 6v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg></div>
+        <h3 class="service-h3">全室統籌施工</h3>
+        <p class="service-p">拆除、泥作、木作、水電、油漆一條龍管理，御風堂嚴選合作工班，確保品質與工期。</p>
+        <div class="service-arrow"><svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg></div>
+      </div>
+      <div class="service-card reveal" style="transition-delay:0.3s">
+        <div class="service-card-num">04</div>
+        <div class="service-icon"><svg viewBox="0 0 24 24"><path d="M20.84 4.61a5.5 5.5 0 00-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 00-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 000-7.78z"/></svg></div>
+        <h3 class="service-h3">家具軟裝選配</h3>
+        <p class="service-p">精選國際品牌家具與燈飾，搭配布藝、藝術品提案，讓空間呈現完整而一致的高端風格。</p>
+        <div class="service-arrow"><svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg></div>
+      </div>
+      <div class="service-card reveal" style="transition-delay:0.4s">
+        <div class="service-card-num">05</div>
+        <div class="service-icon"><svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg></div>
+        <h3 class="service-h3">豪宅新成屋規劃</h3>
+        <p class="service-p">針對高端新成屋提供全方位室內規劃，結合建築格局特性，量身打造頂奢居住場景。</p>
+        <div class="service-arrow"><svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg></div>
+      </div>
+      <div class="service-card reveal" style="transition-delay:0.5s">
+        <div class="service-card-num">06</div>
+        <div class="service-icon"><svg viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="9" y1="15" x2="15" y2="15"/></svg></div>
+        <h3 class="service-h3">工程估價與顧問</h3>
+        <p class="service-p">提供透明化工程報價與材料說明，協助業主精準掌握預算，做出最符合價值的設計決策。</p>
+        <div class="service-arrow"><svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PORTFOLIO -->
+<section id="portfolio">
+  <div class="portfolio-wrap">
+    <div class="portfolio-head reveal">
+      <span class="section-label">Portfolio · 精選作品</span>
+      <h2 class="section-h2">每個空間，都是<br>一段<em>靜默的故事</em></h2>
+    </div>
+    <div class="portfolio-grid">
+      <div class="port-item">
+        <img src="https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?w=900&auto=format&fit=crop&q=80" alt="淡水海景豪宅" loading="lazy"/>
+        <div class="port-overlay"></div>
+        <div class="port-info">
+          <div class="port-cat">Luxury Residential · 豪宅住宅</div>
+          <div class="port-title">淡水海景第一排 · 私人會所設計</div>
+        </div>
+      </div>
+      <div class="port-item">
+        <img src="https://images.unsplash.com/photo-1616486338812-3dadae4b4ace?w=600&auto=format&fit=crop&q=80" alt="現代簡約臥室" loading="lazy"/>
+        <div class="port-overlay"></div>
+        <div class="port-info">
+          <div class="port-cat">Modern · 現代簡約</div>
+          <div class="port-title">信義計畫區 · 夫妻雅居改造</div>
+        </div>
+      </div>
+      <div class="port-item">
+        <img src="https://images.unsplash.com/photo-1600210492493-0946911123ea?w=600&auto=format&fit=crop&q=80" alt="北歐風客廳" loading="lazy"/>
+        <div class="port-overlay"></div>
+        <div class="port-info">
+          <div class="port-cat">Scandinavian · 北歐人文</div>
+          <div class="port-title">天母山腰 · 親子四口之家</div>
+        </div>
+      </div>
+    </div>
+    <div class="port-more reveal">
+      <a href="#">查看完整作品集</a>
+    </div>
+  </div>
+</section>
+
+<!-- PROCESS -->
+<section id="process">
+  <div class="process-wrap">
+    <div class="process-head reveal">
+      <span class="section-label">Process · 設計流程</span>
+      <h2 class="section-h2">透明可信的<em>五步驟</em>設計服務</h2>
+    </div>
+    <div class="process-steps">
+      <div class="process-step reveal" style="transition-delay:0s">
+        <div class="process-num">01</div>
+        <div class="process-step-title">需求訪談</div>
+        <div class="process-step-desc">深入了解生活習慣、美學偏好與預算範圍，奠定設計基礎。</div>
+      </div>
+      <div class="process-step reveal" style="transition-delay:0.12s">
+        <div class="process-num">02</div>
+        <div class="process-step-title">概念發展</div>
+        <div class="process-step-desc">提出風格方向、平面配置，呈現設計概念板與 3D 示意。</div>
+      </div>
+      <div class="process-step reveal" style="transition-delay:0.24s">
+        <div class="process-num">03</div>
+        <div class="process-step-title">施工圖繪製</div>
+        <div class="process-step-desc">完整 AutoCAD 施工圖面、材料規格表與詳細工程報價。</div>
+      </div>
+      <div class="process-step reveal" style="transition-delay:0.36s">
+        <div class="process-num">04</div>
+        <div class="process-step-title">工程執行</div>
+        <div class="process-step-desc">嚴格工班管理與進度回報，每週現場監工確保品質。</div>
+      </div>
+      <div class="process-step reveal" style="transition-delay:0.48s">
+        <div class="process-num">05</div>
+        <div class="process-step-title">完工驗收</div>
+        <div class="process-step-desc">細部確認與軟裝佈置，並提供一年工程保固服務。</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TESTIMONIAL -->
+<section id="testimonial">
+  <div class="testimonial-wrap">
+    <span class="testimonial-quote-mark">"</span>
+    <div id="testContent">
+      <p class="testimonial-text" id="testText"></p>
+      <div class="testimonial-line"></div>
+      <div class="testimonial-attr" id="testAttr"></div>
+    </div>
+    <div class="t-dots" id="tDots"></div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section id="cta">
+  <div class="cta-bg"></div>
+  <div class="cta-overlay"></div>
+  <div class="cta-body reveal">
+    <h2 class="cta-h2">開始規劃您的<em>理想居所</em></h2>
+    <p class="cta-sub">免費初步諮詢 · 新北市淡水 · 大台北地區全面服務</p>
+    <div class="cta-actions">
+      <a href="tel:+886" class="cta-btn fill">電話預約諮詢</a>
+      <a href="#" class="cta-btn ghost">下載服務簡介</a>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-wrap">
+    <div class="footer-top">
+      <div class="footer-brand">
+        <div class="brand-cn">御風堂國際室內設計</div>
+        <div class="brand-en">Yuphonetone International Interior Design</div>
+        <p>深耕台灣高端住宅市場逾十四年，以精工美學與整合服務，打造每一個值得被珍藏的生活場景。</p>
+      </div>
+      <div class="footer-col">
+        <h4>服務項目</h4>
+        <ul>
+          <li><a href="#">空間規劃設計</a></li>
+          <li><a href="#">3D 空間視覺化</a></li>
+          <li><a href="#">全室統籌施工</a></li>
+          <li><a href="#">家具軟裝選配</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>快速連結</h4>
+        <ul>
+          <li><a href="#about">品牌理念</a></li>
+          <li><a href="#portfolio">作品展示</a></li>
+          <li><a href="#process">設計流程</a></li>
+          <li><a href="interior-design-quote.html">線上報價單</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>聯絡資訊</h4>
+        <ul>
+          <li><a href="#">新北市淡水區</a></li>
+          <li><a href="#">淡海新市鎮</a></li>
+          <li><a href="#">LINE 線上諮詢</a></li>
+          <li><a href="#">service@yuphonetone.com</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <div class="footer-copy">© 2026 御風堂國際室內設計 · All Rights Reserved</div>
+      <div class="footer-socials">
+        <a href="#" class="footer-social" aria-label="Instagram">
+          <svg viewBox="0 0 24 24"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><circle cx="12" cy="12" r="4.5"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg>
+        </a>
+        <a href="#" class="footer-social" aria-label="Facebook">
+          <svg viewBox="0 0 24 24"><path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"/></svg>
+        </a>
+        <a href="#" class="footer-social" aria-label="LINE">
+          <svg viewBox="0 0 24 24"><path d="M21 11.5C21 7.36 16.97 4 12 4S3 7.36 3 11.5c0 3.74 3.32 6.87 7.8 7.46.3.07.72.2.82.47.1.24.06.62.03.86l-.14.82c-.04.24-.19.95.83.52 1.02-.43 5.5-3.24 7.5-5.54A6.65 6.65 0 0021 11.5z"/></svg>
+        </a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script>
+// ── CURSOR ──
+const cur = document.getElementById('cursor');
+const curR = document.getElementById('cursor-ring');
+let mx=0,my=0,rx=0,ry=0;
+document.addEventListener('mousemove', e=>{
+  mx=e.clientX; my=e.clientY;
+  cur.style.left=mx+'px'; cur.style.top=my+'px';
+});
+function animRing(){
+  rx+=(mx-rx)*0.12; ry+=(my-ry)*0.12;
+  curR.style.left=rx+'px'; curR.style.top=ry+'px';
+  requestAnimationFrame(animRing);
+}
+animRing();
+document.querySelectorAll('a,button').forEach(el=>{
+  el.addEventListener('mouseenter',()=>{cur.style.transform='translate(-50%,-50%) scale(2.2)';curR.style.transform='translate(-50%,-50%) scale(0.5)';curR.style.opacity='0';});
+  el.addEventListener('mouseleave',()=>{cur.style.transform='translate(-50%,-50%) scale(1)';curR.style.transform='translate(-50%,-50%) scale(1)';curR.style.opacity='1';});
+});
+
+// ── NAV SCROLL ──
+const nav = document.getElementById('mainNav');
+window.addEventListener('scroll',()=>{
+  nav.classList.toggle('scrolled', window.scrollY > 60);
+});
+
+// ── HERO SLIDESHOW ──
+const heroImgs = [
+  'https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?w=1600&auto=format&fit=crop&q=80',
+  'https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?w=1600&auto=format&fit=crop&q=80',
+  'https://images.unsplash.com/photo-1565538810643-b5bdb714032a?w=1600&auto=format&fit=crop&q=80',
+  'https://images.unsplash.com/photo-1586023492125-27b2c045efd7?w=1600&auto=format&fit=crop&q=80',
+];
+let hIdx=0, hTimer, hStart, hDuration=6000;
+const slidesEl=document.getElementById('heroSlides');
+const indEl=document.getElementById('heroIndicators');
+const barEl=document.getElementById('heroBar');
+
+heroImgs.forEach((src,i)=>{
+  const s=document.createElement('div');
+  s.className='hero-slide'+(i===0?' active':'');
+  s.style.backgroundImage=`url(${src})`;
+  slidesEl.appendChild(s);
+  const ind=document.createElement('button');
+  ind.className='hero-ind'+(i===0?' active':'');
+  ind.onclick=()=>goHero(i);
+  indEl.appendChild(ind);
+});
+
+function goHero(idx){
+  document.querySelectorAll('.hero-slide')[hIdx].classList.remove('active');
+  document.querySelectorAll('.hero-ind')[hIdx].classList.remove('active');
+  hIdx=idx;
+  const slides=document.querySelectorAll('.hero-slide');
+  slides[hIdx].classList.remove('active');
+  void slides[hIdx].offsetWidth;
+  slides[hIdx].classList.add('active');
+  document.querySelectorAll('.hero-ind')[hIdx].classList.add('active');
+  clearInterval(hTimer);
+  hStart=Date.now();
+  startHeroTimer();
+}
+
+function startHeroTimer(){
+  barEl.style.width='0%';
+  hStart=Date.now();
+  hTimer=setInterval(()=>{
+    const p=Math.min((Date.now()-hStart)/hDuration,1);
+    barEl.style.width=(p*100)+'%';
+    if(p>=1){ goHero((hIdx+1)%heroImgs.length); }
+  },50);
+}
+startHeroTimer();
+
+// ── MARQUEE ──
+const mItems=['空間規劃','室內裝修','3D 視覺化','材質選配','軟裝佈置','新北 · 台北','豪宅設計','工程統籌'];
+const track=document.getElementById('marqueeTrack');
+[...mItems,...mItems,...mItems,...mItems].forEach(t=>{
+  const span=document.createElement('span');
+  span.className='marquee-item';
+  span.innerHTML=t+'<span class="marquee-dot"></span>';
+  track.appendChild(span);
+});
+
+// ── SCROLL REVEAL ──
+const obs=new IntersectionObserver(entries=>{
+  entries.forEach(e=>{
+    if(e.isIntersecting) e.target.classList.add('visible');
+  });
+},{threshold:0.12});
+document.querySelectorAll('.reveal,.reveal-left,.reveal-right').forEach(el=>obs.observe(el));
+
+// ── TESTIMONIALS ──
+const tData=[
+  {text:'御風堂的設計超乎我的期待。Johnson 對細節的敏感度與溝通的耐心，讓整個裝修過程非常愉快。最終的成果讓朋友都以為我買了新房子。',attr:'— 蔡先生・淡水海景住宅 60 坪'},
+  {text:'從第一次拜訪到完工驗收，御風堂始終保持高度的專業與誠信。3D 圖讓我在施工前就充滿信心，實際完工更超越了渲染圖的質感。',attr:'— 林太太・信義計畫區 48 坪'},
+  {text:'我在竹圍的老屋翻新，御風堂幫我徹底重生了這個空間。預算控制得很好，工期也如期完成，是我住台灣二十年來遇過最可靠的設計公司。',attr:'— 陳先生・竹圍老屋翻新 35 坪'},
+];
+let tIdx=0;
+const tText=document.getElementById('testText');
+const tAttr=document.getElementById('testAttr');
+const tDots=document.getElementById('tDots');
+
+function renderTest(idx){
+  tText.style.opacity='0';tAttr.style.opacity='0';
+  setTimeout(()=>{
+    tText.textContent=tData[idx].text;
+    tAttr.textContent=tData[idx].attr;
+    tText.style.opacity='1';tAttr.style.opacity='1';
+  },350);
+  document.querySelectorAll('.t-dot').forEach((d,i)=>d.classList.toggle('active',i===idx));
+}
+
+tData.forEach((_,i)=>{
+  const d=document.createElement('button');
+  d.className='t-dot'+(i===0?' active':'');
+  d.onclick=()=>{tIdx=i;renderTest(i);};
+  tDots.appendChild(d);
+});
+tText.style.transition='opacity 0.35s';
+tAttr.style.transition='opacity 0.35s';
+renderTest(0);
+setInterval(()=>{tIdx=(tIdx+1)%tData.length;renderTest(tIdx);},6000);
+</script>
+</body>
+</html>
