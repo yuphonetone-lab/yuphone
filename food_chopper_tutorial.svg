@@ -1,0 +1,276 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 1400" width="900" height="1400" font-family="'Microsoft JhengHei', 'PingFang TC', Arial, sans-serif">
+
+  <!-- Background -->
+  <rect width="900" height="1400" fill="#FFF8F0"/>
+
+  <!-- Title -->
+  <rect x="0" y="0" width="900" height="80" fill="#5C4033" rx="0"/>
+  <text x="450" y="32" text-anchor="middle" fill="white" font-size="22" font-weight="bold">🔪 無線電動食物切碎機</text>
+  <text x="450" y="60" text-anchor="middle" fill="#FFD59E" font-size="16">使用教學圖解 / User Guide</text>
+
+  <!-- ============ PART 1: Components ============ -->
+  <rect x="20" y="95" width="860" height="30" fill="#8D6E63" rx="5"/>
+  <text x="30" y="116" fill="white" font-size="16" font-weight="bold">① 零件認識 Components</text>
+
+  <!-- Motor Base -->
+  <g transform="translate(60,145)">
+    <ellipse cx="60" cy="95" rx="55" ry="60" fill="#7B6B5A" stroke="#5C4033" stroke-width="2"/>
+    <ellipse cx="60" cy="88" rx="50" ry="55" fill="#9C8B7A"/>
+    <rect x="35" y="30" width="50" height="12" rx="6" fill="#C4A882" stroke="#A08060" stroke-width="1"/>
+    <text x="60" y="42" text-anchor="middle" fill="#5C4033" font-size="8" font-weight="bold">ON/OFF</text>
+    <ellipse cx="60" cy="155" rx="55" ry="10" fill="#6B5A4A" opacity="0.5"/>
+    <text x="60" y="185" text-anchor="middle" fill="#5C4033" font-size="13" font-weight="bold">主機馬達座</text>
+    <text x="60" y="202" text-anchor="middle" fill="#8D6E63" font-size="11">Motor Base</text>
+  </g>
+
+  <!-- Glass Bowl -->
+  <g transform="translate(210,145)">
+    <path d="M20,30 L10,130 Q10,145 30,145 L90,145 Q110,145 110,130 L100,30 Z" fill="none" stroke="#90CAF9" stroke-width="3" opacity="0.8"/>
+    <path d="M20,30 L10,130 Q10,145 30,145 L90,145 Q110,145 110,130 L100,30 Z" fill="#E3F2FD" opacity="0.4"/>
+    <line x1="60" y1="30" x2="60" y2="145" stroke="#90CAF9" stroke-width="1" stroke-dasharray="4,3" opacity="0.5"/>
+    <circle cx="60" cy="145" r="5" fill="#78909C"/>
+    <text x="60" y="185" text-anchor="middle" fill="#5C4033" font-size="13" font-weight="bold">玻璃碗</text>
+    <text x="60" y="202" text-anchor="middle" fill="#8D6E63" font-size="11">Glass Bowl</text>
+  </g>
+
+  <!-- Chopping Blade -->
+  <g transform="translate(350,160)">
+    <rect x="52" y="0" width="6" height="70" fill="#B0BEC5" rx="3"/>
+    <circle cx="55" cy="70" r="8" fill="#78909C"/>
+    <path d="M55,50 C30,40 10,55 15,70 C20,80 40,75 55,70" fill="#CFD8DC" stroke="#90A4AE" stroke-width="1.5"/>
+    <path d="M55,50 C80,40 100,55 95,70 C90,80 70,75 55,70" fill="#CFD8DC" stroke="#90A4AE" stroke-width="1.5"/>
+    <path d="M55,70 C30,80 10,95 15,110 C20,120 40,115 55,110" fill="#CFD8DC" stroke="#90A4AE" stroke-width="1.5"/>
+    <path d="M55,70 C80,80 100,95 95,110 C90,120 70,115 55,110" fill="#CFD8DC" stroke="#90A4AE" stroke-width="1.5"/>
+    <text x="55" y="155" text-anchor="middle" fill="#5C4033" font-size="13" font-weight="bold">切碎刀片</text>
+    <text x="55" y="172" text-anchor="middle" fill="#8D6E63" font-size="11">Chopping Blade</text>
+  </g>
+
+  <!-- Slicing Disc -->
+  <g transform="translate(490,155)">
+    <circle cx="60" cy="65" r="55" fill="#ECEFF1" stroke="#B0BEC5" stroke-width="2"/>
+    <circle cx="60" cy="65" r="10" fill="#78909C"/>
+    <line x1="60" y1="15" x2="60" y2="115" stroke="#90A4AE" stroke-width="2"/>
+    <line x1="10" y1="65" x2="110" y2="65" stroke="#90A4AE" stroke-width="2"/>
+    <line x1="25" y1="25" x2="95" y2="105" stroke="#90A4AE" stroke-width="1.5"/>
+    <line x1="95" y1="25" x2="25" y2="105" stroke="#90A4AE" stroke-width="1.5"/>
+    <rect x="15" y="55" width="20" height="8" rx="2" fill="#B0BEC5" transform="rotate(-45,25,59)"/>
+    <rect x="75" y="55" width="20" height="8" rx="2" fill="#B0BEC5" transform="rotate(45,85,59)"/>
+    <text x="60" y="150" text-anchor="middle" fill="#5C4033" font-size="13" font-weight="bold">刨絲切片盤</text>
+    <text x="60" y="167" text-anchor="middle" fill="#8D6E63" font-size="11">Slicing Disc</text>
+  </g>
+
+  <!-- USB Cable -->
+  <g transform="translate(650,175)">
+    <rect x="20" y="0" width="30" height="20" rx="4" fill="#78909C"/>
+    <rect x="25" y="5" width="20" height="10" rx="2" fill="#B0BEC5"/>
+    <path d="M35,20 Q35,60 50,70 Q65,80 65,120" stroke="#546E7A" stroke-width="4" fill="none" stroke-linecap="round"/>
+    <rect x="55" y="120" width="20" height="12" rx="3" fill="#78909C"/>
+    <text x="55" y="162" text-anchor="middle" fill="#5C4033" font-size="13" font-weight="bold">USB充電線</text>
+    <text x="55" y="179" text-anchor="middle" fill="#8D6E63" font-size="11">USB Cable</text>
+  </g>
+
+  <!-- ============ PART 2: Charging ============ -->
+  <rect x="20" y="380" width="860" height="30" fill="#8D6E63" rx="5"/>
+  <text x="30" y="401" fill="white" font-size="16" font-weight="bold">② 充電方式 Charging</text>
+
+  <rect x="20" y="415" width="860" height="160" fill="white" rx="10" stroke="#D7C4B0" stroke-width="1.5"/>
+
+  <!-- Charging illustration -->
+  <g transform="translate(60,430)">
+    <!-- Power bank -->
+    <rect x="0" y="30" width="80" height="45" rx="8" fill="#455A64"/>
+    <rect x="5" y="38" width="60" height="12" rx="3" fill="#4CAF50" opacity="0.8"/>
+    <rect x="65" y="48" width="15" height="8" rx="2" fill="#546E7A"/>
+    <text x="40" y="90" text-anchor="middle" fill="#5C4033" font-size="11">電源/充電器</text>
+  </g>
+
+  <!-- Cable line -->
+  <path d="M160,460 Q220,460 240,460" stroke="#546E7A" stroke-width="3" fill="none" stroke-dasharray="6,3"/>
+  <polygon points="240,455 255,460 240,465" fill="#546E7A"/>
+
+  <!-- Machine charging -->
+  <g transform="translate(255,420)">
+    <ellipse cx="60" cy="75" rx="50" ry="55" fill="#9C8B7A"/>
+    <rect x="35" y="25" width="50" height="12" rx="6" fill="#C4A882"/>
+    <circle cx="60" cy="130" r="5" fill="#4CAF50"/>
+    <text x="60" y="150" text-anchor="middle" fill="#5C4033" font-size="11">充電指示燈</text>
+    <text x="60" y="163" text-anchor="middle" fill="#8D6E63" font-size="10">亮燈=充電中</text>
+  </g>
+
+  <!-- Charging tips -->
+  <g transform="translate(420,430)">
+    <rect x="0" y="0" width="440" height="130" fill="#FFF3E0" rx="8" stroke="#FFB74D" stroke-width="1.5"/>
+    <text x="15" y="25" fill="#E65100" font-size="14" font-weight="bold">💡 充電提示</text>
+    <text x="15" y="50" fill="#5C4033" font-size="12">• 使用附贈 USB 線連接電源充電</text>
+    <text x="15" y="72" fill="#5C4033" font-size="12">• 充電時間約 2～3 小時</text>
+    <text x="15" y="94" fill="#5C4033" font-size="12">• 充電完成指示燈熄滅</text>
+    <text x="15" y="116" fill="#5C4033" font-size="12">• 首次使用請先充飽電</text>
+  </g>
+
+  <!-- ============ PART 3: Assembly ============ -->
+  <rect x="20" y="590" width="860" height="30" fill="#8D6E63" rx="5"/>
+  <text x="30" y="611" fill="white" font-size="16" font-weight="bold">③ 組裝步驟 Assembly Steps</text>
+
+  <!-- Step 1 -->
+  <rect x="20" y="630" width="200" height="220" fill="white" rx="10" stroke="#D7C4B0" stroke-width="1.5"/>
+  <circle cx="50" cy="655" r="18" fill="#5C4033"/>
+  <text x="50" y="661" text-anchor="middle" fill="white" font-size="16" font-weight="bold">1</text>
+  <text x="110" y="660" fill="#5C4033" font-size="13" font-weight="bold">安裝刀片</text>
+  <g transform="translate(60,675)">
+    <path d="M40,0 L40,50" stroke="#78909C" stroke-width="3" stroke-linecap="round"/>
+    <path d="M40,30 C20,20 5,30 8,42 C11,50 28,47 40,42" fill="#CFD8DC" stroke="#90A4AE" stroke-width="1.5"/>
+    <path d="M40,30 C60,20 75,30 72,42 C69,50 52,47 40,42" fill="#CFD8DC" stroke="#90A4AE" stroke-width="1.5"/>
+    <path d="M40,42 C20,50 5,60 8,72 C11,80 28,77 40,72" fill="#CFD8DC" stroke="#90A4AE" stroke-width="1.5"/>
+    <path d="M40,42 C60,50 75,60 72,72 C69,80 52,77 40,72" fill="#CFD8DC" stroke="#90A4AE" stroke-width="1.5"/>
+    <text x="40" y="105" text-anchor="middle" fill="#5C4033" font-size="11">將刀片插入</text>
+    <text x="40" y="120" text-anchor="middle" fill="#5C4033" font-size="11">玻璃碗底部</text>
+  </g>
+
+  <!-- Arrow -->
+  <polygon points="228,740 245,730 245,750" fill="#8D6E63"/>
+
+  <!-- Step 2 -->
+  <rect x="248" y="630" width="200" height="220" fill="white" rx="10" stroke="#D7C4B0" stroke-width="1.5"/>
+  <circle cx="278" cy="655" r="18" fill="#5C4033"/>
+  <text x="278" y="661" text-anchor="middle" fill="white" font-size="16" font-weight="bold">2</text>
+  <text x="338" y="660" fill="#5C4033" font-size="13" font-weight="bold">放入食材</text>
+  <g transform="translate(278,680)">
+    <path d="M0,30 L-10,100 Q-10,110 5,110 L65,110 Q80,110 80,100 L70,30 Z" fill="none" stroke="#90CAF9" stroke-width="2.5" opacity="0.8"/>
+    <path d="M0,30 L-10,100 Q-10,110 5,110 L65,110 Q80,110 80,100 L70,30 Z" fill="#E3F2FD" opacity="0.3"/>
+    <ellipse cx="25" cy="65" rx="12" ry="8" fill="#FF8A65" opacity="0.8"/>
+    <ellipse cx="50" cy="55" rx="10" ry="7" fill="#AED581" opacity="0.8"/>
+    <ellipse cx="40" cy="80" rx="11" ry="7" fill="#FF8A65" opacity="0.8"/>
+    <text x="35" y="130" text-anchor="middle" fill="#5C4033" font-size="11">食材不超過</text>
+    <text x="35" y="145" text-anchor="middle" fill="#5C4033" font-size="11">容量線 ⚠️</text>
+  </g>
+
+  <!-- Arrow -->
+  <polygon points="456,740 473,730 473,750" fill="#8D6E63"/>
+
+  <!-- Step 3 -->
+  <rect x="476" y="630" width="200" height="220" fill="white" rx="10" stroke="#D7C4B0" stroke-width="1.5"/>
+  <circle cx="506" cy="655" r="18" fill="#5C4033"/>
+  <text x="506" y="661" text-anchor="middle" fill="white" font-size="16" font-weight="bold">3</text>
+  <text x="566" y="660" fill="#5C4033" font-size="13" font-weight="bold">蓋上蓋子</text>
+  <g transform="translate(506,680)">
+    <path d="M0,50 L-10,120 Q-10,130 5,130 L65,130 Q80,130 80,120 L70,50 Z" fill="#E3F2FD" opacity="0.4" stroke="#90CAF9" stroke-width="2"/>
+    <rect x="-5" y="35" width="90" height="20" rx="10" fill="#B0BEC5" stroke="#90A4AE" stroke-width="1.5"/>
+    <rect x="5" y="15" width="70" height="22" rx="5" fill="#CFD8DC"/>
+    <circle cx="40" cy="26" r="8" fill="#B0BEC5"/>
+    <text x="40" y="155" text-anchor="middle" fill="#5C4033" font-size="11">順時針旋轉</text>
+    <text x="40" y="170" text-anchor="middle" fill="#5C4033" font-size="11">鎖緊蓋子</text>
+  </g>
+
+  <!-- Arrow -->
+  <polygon points="684,740 701,730 701,750" fill="#8D6E63"/>
+
+  <!-- Step 4 -->
+  <rect x="704" y="630" width="196" height="220" fill="white" rx="10" stroke="#D7C4B0" stroke-width="1.5"/>
+  <circle cx="734" cy="655" r="18" fill="#5C4033"/>
+  <text x="734" y="661" text-anchor="middle" fill="white" font-size="16" font-weight="bold">4</text>
+  <text x="794" y="660" fill="#5C4033" font-size="13" font-weight="bold">扣上主機</text>
+  <g transform="translate(734,680)">
+    <ellipse cx="48" cy="30" rx="45" ry="32" fill="#9C8B7A"/>
+    <rect x="23" y="5" width="50" height="12" rx="6" fill="#C4A882"/>
+    <rect x="13" y="60" width="70" height="70" rx="5" fill="#E3F2FD" opacity="0.5" stroke="#90CAF9" stroke-width="2"/>
+    <path d="M25,60 L60,60" stroke="#8D6E63" stroke-width="2" stroke-dasharray="4,3"/>
+    <text x="48" y="155" text-anchor="middle" fill="#5C4033" font-size="11">主機倒扣</text>
+    <text x="48" y="170" text-anchor="middle" fill="#5C4033" font-size="11">於碗蓋上</text>
+  </g>
+
+  <!-- ============ PART 4: Operation ============ -->
+  <rect x="20" y="870" width="860" height="30" fill="#8D6E63" rx="5"/>
+  <text x="30" y="891" fill="white" font-size="16" font-weight="bold">④ 操作方式 Operation</text>
+
+  <rect x="20" y="905" width="410" height="200" fill="white" rx="10" stroke="#D7C4B0" stroke-width="1.5"/>
+  <text x="35" y="930" fill="#5C4033" font-size="14" font-weight="bold">按壓操作</text>
+
+  <!-- Button press illustration -->
+  <g transform="translate(40,940)">
+    <ellipse cx="80" cy="60" rx="70" ry="65" fill="#9C8B7A"/>
+    <rect x="50" y="15" width="60" height="16" rx="8" fill="#C4A882" stroke="#A08060" stroke-width="1.5"/>
+    <text x="80" y="27" text-anchor="middle" fill="#5C4033" font-size="9" font-weight="bold">按壓啟動</text>
+    <ellipse cx="80" cy="125" rx="70" ry="12" fill="#6B5A4A" opacity="0.3"/>
+    <!-- Press arrow -->
+    <path d="M170,20 L185,20 L185,40" stroke="#E53935" stroke-width="2.5" fill="none"/>
+    <polygon points="180,38 185,50 190,38" fill="#E53935"/>
+    <text x="195" y="35" fill="#E53935" font-size="12" font-weight="bold">按壓</text>
+    <text x="195" y="50" fill="#E53935" font-size="12" font-weight="bold">不放</text>
+  </g>
+
+  <text x="35" y="1075" fill="#5C4033" font-size="12">• 長按：連續運轉切碎</text>
+  <text x="35" y="1095" fill="#5C4033" font-size="12">• 短按多次：點動切碎（較粗）</text>
+
+  <!-- Slicing disc operation -->
+  <rect x="450" y="905" width="430" height="200" fill="white" rx="10" stroke="#D7C4B0" stroke-width="1.5"/>
+  <text x="465" y="930" fill="#5C4033" font-size="14" font-weight="bold">切換刀盤</text>
+
+  <g transform="translate(465,945)">
+    <!-- Disc switch illustration -->
+    <circle cx="50" cy="45" r="40" fill="#ECEFF1" stroke="#B0BEC5" stroke-width="2"/>
+    <circle cx="50" cy="45" r="8" fill="#78909C"/>
+    <line x1="50" y1="10" x2="50" y2="80" stroke="#90A4AE" stroke-width="2"/>
+    <line x1="15" y1="45" x2="85" y2="45" stroke="#90A4AE" stroke-width="2"/>
+    <text x="50" y="100" text-anchor="middle" fill="#8D6E63" font-size="11">刨絲切片盤</text>
+
+    <text x="110" y="48" fill="#5C4033" font-size="20">→</text>
+
+    <circle cx="175" cy="45" r="40" fill="#ECEFF1" stroke="#B0BEC5" stroke-width="2"/>
+    <line x1="155" y1="25" x2="195" y2="65" stroke="#90A4AE" stroke-width="2.5"/>
+    <line x1="195" y1="25" x2="155" y2="65" stroke="#90A4AE" stroke-width="2.5"/>
+    <text x="175" y="100" text-anchor="middle" fill="#8D6E63" font-size="11">切碎刀片</text>
+  </g>
+
+  <text x="465" y="1070" fill="#5C4033" font-size="12">• 刨絲盤：切絲、薄片（胡蘿蔔/起司）</text>
+  <text x="465" y="1090" fill="#5C4033" font-size="12">• 切碎刀：肉末、蒜末、洋蔥碎</text>
+
+  <!-- ============ PART 5: Cleaning ============ -->
+  <rect x="20" y="1120" width="860" height="30" fill="#8D6E63" rx="5"/>
+  <text x="30" y="1141" fill="white" font-size="16" font-weight="bold">⑤ 清潔保養 Cleaning</text>
+
+  <rect x="20" y="1155" width="860" height="175" fill="white" rx="10" stroke="#D7C4B0" stroke-width="1.5"/>
+
+  <!-- Cleaning steps -->
+  <g transform="translate(30,1170)">
+    <!-- Step icons row -->
+    <rect x="0" y="0" width="155" height="130" fill="#E8F5E9" rx="8"/>
+    <text x="78" y="25" text-anchor="middle" fill="#2E7D32" font-size="28">💧</text>
+    <text x="78" y="55" text-anchor="middle" fill="#2E7D32" font-size="13" font-weight="bold">玻璃碗</text>
+    <text x="78" y="75" text-anchor="middle" fill="#5C4033" font-size="11">可用清水</text>
+    <text x="78" y="92" text-anchor="middle" fill="#5C4033" font-size="11">沖洗清潔</text>
+    <text x="78" y="112" text-anchor="middle" fill="#388E3C" font-size="11">✓ 可水洗</text>
+  </g>
+
+  <g transform="translate(205,1170)">
+    <rect x="0" y="0" width="155" height="130" fill="#E8F5E9" rx="8"/>
+    <text x="78" y="25" text-anchor="middle" fill="#2E7D32" font-size="28">🔪</text>
+    <text x="78" y="55" text-anchor="middle" fill="#2E7D32" font-size="13" font-weight="bold">刀片/刀盤</text>
+    <text x="78" y="75" text-anchor="middle" fill="#5C4033" font-size="11">小心刀刃</text>
+    <text x="78" y="92" text-anchor="middle" fill="#5C4033" font-size="11">輕輕沖洗</text>
+    <text x="78" y="112" text-anchor="middle" fill="#388E3C" font-size="11">✓ 可水洗</text>
+  </g>
+
+  <g transform="translate(380,1170)">
+    <rect x="0" y="0" width="155" height="130" fill="#FFEBEE" rx="8"/>
+    <text x="78" y="25" text-anchor="middle" fill="#C62828" font-size="28">⚡</text>
+    <text x="78" y="55" text-anchor="middle" fill="#C62828" font-size="13" font-weight="bold">主機馬達</text>
+    <text x="78" y="75" text-anchor="middle" fill="#5C4033" font-size="11">用濕布擦拭</text>
+    <text x="78" y="92" text-anchor="middle" fill="#5C4033" font-size="11">勿沾水</text>
+    <text x="78" y="112" text-anchor="middle" fill="#C62828" font-size="11">✗ 不可水洗</text>
+  </g>
+
+  <g transform="translate(555,1170)">
+    <rect x="0" y="0" width="295" height="130" fill="#FFF3E0" rx="8"/>
+    <text x="15" y="25" fill="#E65100" font-size="13" font-weight="bold">⚠️ 注意事項</text>
+    <text x="15" y="50" fill="#5C4033" font-size="12">• 刀片非常鋒利，取放時小心</text>
+    <text x="15" y="70" fill="#5C4033" font-size="12">• 主機勿浸水，防止漏電</text>
+    <text x="15" y="90" fill="#5C4033" font-size="12">• 每次使用後立即清洗</text>
+    <text x="15" y="110" fill="#5C4033" font-size="12">• 兒童請在大人陪同下使用</text>
+  </g>
+
+  <!-- Footer -->
+  <rect x="0" y="1370" width="900" height="30" fill="#5C4033"/>
+  <text x="450" y="1390" text-anchor="middle" fill="#FFD59E" font-size="13">無線電動食物切碎機使用教學 | Cordless Food Chopper Guide</text>
+
+</svg>
